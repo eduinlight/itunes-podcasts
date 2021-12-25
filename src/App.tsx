@@ -1,9 +1,20 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const a = [
+    1, 2, 3, 4, 5, 6, 7, 7, 8, 3, 4, 3, 2, 2, 3, 3, 4, 43, 3, 2, 3, 3, 3, 3, 3,
+    3, 4, 2, 3, 4, 2, 3, 42, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+  ];
+
+  useEffect(() => {
+    if (count) {
+      const a = 10;
+      console.log(a);
+    }
+  }, [count]);
 
   return (
     <div className="App">
@@ -27,7 +38,7 @@ function App() {
           >
             Learn React
           </a>
-          {' | '}
+          {" | "}
           <a
             className="App-link"
             href="https://vitejs.dev/guide/features.html"
@@ -39,7 +50,7 @@ function App() {
         </p>
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
