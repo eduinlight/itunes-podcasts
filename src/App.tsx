@@ -4,10 +4,6 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  const a = [
-    1, 2, 3, 4, 5, 6, 7, 7, 8, 3, 4, 3, 2, 2, 3, 3, 4, 43, 3, 2, 3, 3, 3, 3, 3,
-    3, 4, 2, 3, 4, 2, 3, 42, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-  ];
 
   useEffect(() => {
     if (count) {
