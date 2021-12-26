@@ -8,8 +8,14 @@
     "lint": "eslint src/**/*.{ts,tsx} --fix"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
+    "redux": "^4.1.2",
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
