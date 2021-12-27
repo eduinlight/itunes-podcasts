@@ -23,6 +23,7 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/react-in-jsx-scope": ["off"],
     "react-hooks/rules-of-hooks": "error",
+    "no-unused-vars": "warn",
     "react-hooks/exhaustive-deps": [
       "warn",
       {

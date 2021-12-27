@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const useRoutes = () => {
+export function useRoutes() {
   const navigate = useNavigate();
 
   const goToPodcastList = useCallback(() => {
@@ -23,4 +23,4 @@ export const useRoutes = () => {
   );
 
   return { goToPodcastList, goToPodcastDetails, goToPodcastEpisode };
-};
+}

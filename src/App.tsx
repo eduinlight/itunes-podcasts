@@ -1,11 +1,10 @@
-import { Provider } from "react-redux";
+import { GlobalStateProvider } from "./context";
 import { Routes } from "./Routes";
-import store from "./store";
 
 export const App = () => {
   return (
-    <Provider store={store}>
+    <GlobalStateProvider>
       <Routes />
-    </Provider>
+    </GlobalStateProvider>
   );
 };
