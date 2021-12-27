@@ -1,22 +1,33 @@
 import { useActor } from "@xstate/react";
-import { ChangeEvent, useCallback, useContext } from "react";
+import { ChangeEvent, useCallback, useContext, useEffect } from "react";
 import { GlobalStateContext } from "../../context";
+import { useHeaderActions } from "../../context/header/useHeaderActions";
 import { usePodcastListActions } from "../../context/podcastList/usePodcastListActions";
 import { useOnMount } from "../../hooks/useOnMount";
 import { Alert } from "../shared/Alert";
 import { Badge } from "../shared/Badge";
 import { Button } from "../shared/Button";
 import { Input } from "../shared/Input";
+import { Loading } from "../shared/Loading";
 import { PodcastCardList } from "../shared/PodcastCardList";
 
 export const PodcastList = () => {
-  const { podcastListService } = useContext(GlobalStateContext);
+  const { podcastListService, headerService } = useContext(GlobalStateContext);
   const [state] = useActor(podcastListService);
+  const { idle, loading } = useHeaderActions();
   const { fetchPodcasts, filtering, retry } = usePodcastListActions();
 
   useOnMount(() => {
     fetchPodcasts();
   });
+
+  useEffect(() => {
+    if (state.matches("idle") || state.matches("failure")) {
+      idle();
+    } else {
+      loading();
+    }
+  }, [idle, loading, state]);
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +63,6 @@ export const PodcastList = () => {
           />
         </div>
       )}
-      {state.matches("loading") && <div className="block">loading...</div>}
       {state.matches("idle") && state.context.filteredPodcasts.length === 0 && (
         <div className="mt-2">
           <Alert text="No podcast found." />

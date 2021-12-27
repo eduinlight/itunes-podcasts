@@ -4,11 +4,15 @@ import { collapseString } from "../../../utils";
 
 export interface PodcastCardProps {
   podcast: IPodcast;
+  onClick: () => void;
 }
 
-export const PodcastCard: FC<PodcastCardProps> = ({ podcast }) => {
+export const PodcastCard: FC<PodcastCardProps> = ({ podcast, onClick }) => {
   return (
-    <div className="relative flex flex-col justify-end items-center pt-[100px] sm:mt-[100px] cursor-pointer hover:shadow-xl">
+    <div
+      className="relative flex flex-col justify-end items-center pt-[100px] sm:mt-[100px] cursor-pointer hover:shadow-xl"
+      onClick={onClick}
+    >
       <img
         className="rounded-full w-[140px] h-[140px] absolute top-[35px]"
         alt={podcast.name}
