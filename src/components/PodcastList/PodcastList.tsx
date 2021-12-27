@@ -8,11 +8,10 @@ import { Alert } from "../shared/Alert";
 import { Badge } from "../shared/Badge";
 import { Button } from "../shared/Button";
 import { Input } from "../shared/Input";
-import { Loading } from "../shared/Loading";
 import { PodcastCardList } from "../shared/PodcastCardList";
 
 export const PodcastList = () => {
-  const { podcastListService, headerService } = useContext(GlobalStateContext);
+  const { podcastListService } = useContext(GlobalStateContext);
   const [state] = useActor(podcastListService);
   const { idle, loading } = useHeaderActions();
   const { fetchPodcasts, filtering, retry } = usePodcastListActions();

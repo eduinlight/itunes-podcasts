@@ -62,8 +62,7 @@ export const podcastListService = createMachine<Context, Events, Typestate>({
                   JSON.parse(event.data.data.contents)
                 );
 
-            // @todo uncomment this
-            // saveKey(PODCASTS_STORAGE_KEY, podcasts, ONE_DAY_IN_SECONDS);
+            saveKey(PODCASTS_STORAGE_KEY, podcasts, ONE_DAY_IN_SECONDS);
 
             return {
               podcasts,
